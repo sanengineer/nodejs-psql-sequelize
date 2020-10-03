@@ -15,9 +15,9 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-db.sequelize.sync();
+db.sequelize.sync(); // just resync no drop
 
-// Code Force Drop Table Content And Resync
+// code force drop table content And resync
 // .sync({
 //   force: true,
 // })
