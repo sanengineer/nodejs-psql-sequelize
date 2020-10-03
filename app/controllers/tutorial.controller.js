@@ -37,7 +37,7 @@ exports.findAll = (req, res) => {
   var condition = title
     ? {
         title: {
-          [Op.iLike]: `%${titel}%`,
+          [Op.iLike]: `%${title}%`,
         },
       }
     : null;
