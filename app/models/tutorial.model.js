@@ -1,16 +1,13 @@
-const { Sequelize } = require("sequelize/types");
-const { sequelize } = require(".");
-
-modele.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, Sequelize) => {
   const Tutorial = sequelize.define("tutorial", {
     title: {
       type: Sequelize.STRING,
     },
-    desctiption: {
+    description: {
       type: Sequelize.STRING,
     },
     published: {
-      type: Sequelize.BOLEAN,
+      type: Sequelize.BOOLEAN,
     },
   });
 

@@ -64,7 +64,7 @@ exports.findOne = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "there is no tutorial with that id",
+        message: err.message || "there is no tutorial with that id" + id,
       });
     });
 };
@@ -83,13 +83,13 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: "Cannot update Tutorial",
+          message: `Cannot update Tutorial with id=${id} Maybe tutorial was not found or req.body is empty`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "internal server error",
+        message: "Errot updating Tutorial with id=" + id,
       });
     });
 };
@@ -106,13 +106,13 @@ exports.delete = (req, res) => {
         });
       } else {
         res.send({
-          message: "That tutorial can not deleted",
+          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Deleted Failed",
+        message: "Could not delete Tutorial with id=" + id,
       });
     });
 };
@@ -143,7 +143,8 @@ exports.findAllPublished = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "find All",
+        message:
+          err.message || "Some error occurred while retrieving tutorials.",
       });
     });
 };

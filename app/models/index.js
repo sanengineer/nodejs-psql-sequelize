@@ -1,14 +1,12 @@
-const { Sequelize } = require("sequelize/types");
-const dbConfig = require("../config/db.config");
+const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
-
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
-  operatorAliases: false,
+  // operatorsAliases: false, // masih bingung ini di pakai atau engga??
   pool: {
-    max: dbConfig.max,
-    min: dbConfig.min,
+    max: dbConfig.pool.max,
+    min: dbConfig.pool.min,
     acquire: dbConfig.acquire,
     idle: dbConfig.pool.idle,
   },
@@ -16,10 +14,8 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 const db = {};
 db.Sequelize = Sequelize;
-db.sequelize = Sequelize;
+db.sequelize = sequelize;
 
-const express = require("express");
-
-db.tutorials = require("./tutorial.model.js.js")(sequelize, Sequelize);
+db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 
 module.exports = db;
