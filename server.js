@@ -40,8 +40,8 @@ require("./app/routes/tutorial.routes")(app);
 
 app.listen(PORT, () => {
   console.log(
-    `🚀\x1b[93mServer is running on port\x1b[39m\x1b[91m http://localhost:${PORT}\x1b[39m 🐘\x1b[93mwith PostgreSQL.\x1b[39m`
+    `🚀 \x1b[93mServer is running on port\x1b[39m\x1b[91m http://localhost:${PORT}\x1b[39m 🐘\x1b[93mwith PostgreSQL.\x1b[39m`
   );
-  console.log("👇\x1b[93mdebugging message: \x1b[39m");
+  console.log("👇 \x1b[93mdebugging message: \x1b[39m");
   console.log("");
 });
