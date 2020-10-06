@@ -15,16 +15,16 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-db.sequelize.sync(); // just resync no drop
-
-// code force drop table content And resync
-// .sync({
-//   force: true,
-// })
-// .then(() => {
-//   console.log(`\x1b[91mDrop And Resync DB\x1b[91m`);
-//   console.log("");
-// });
+db.sequelize
+  // .sync(); // just resync no drop
+  // code force drop table content And resync
+  .sync({
+    force: true,
+  })
+  .then(() => {
+    console.log(`\x1b[91mDrop And Resync DB\x1b[91m`);
+    console.log("");
+  });
 
 //create simple route
 app.get("/", (req, res) => {
