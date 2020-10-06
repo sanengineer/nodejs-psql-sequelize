@@ -25,5 +25,6 @@ yarn-error.log*
 
 
 # security db
-/config
-/Config
+/app/config
+./app/Config
+./app/config
