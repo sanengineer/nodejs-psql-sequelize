@@ -121,7 +121,7 @@ exports.delete = (req, res) => {
 exports.deleteAll = (req, res) => {
   Tutorial.destroy({
     where: {},
-    truncate: false,
+    truncate: false, // apa itu truncate??
   })
     .then((nums) => {
       res.send({
